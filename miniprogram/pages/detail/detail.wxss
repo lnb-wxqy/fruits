@@ -1,0 +1,11 @@
+page{background-color: pink}
+.img{display: flex;justify-content: center;align-items: center;height: 500rpx;}
+.img image{width: 100%;border-radius: 30rpx;margin: 0 40rpx;}
+
+.fruit-txt{display: flex;flex-wrap: nowrap;}
+.fruit-txt .boyin{display: flex;margin-left: 70rpx;padding-top: 80rpx;}
+.fruit-txt image{height: 120rpx;width: 120rpx;}
+.fruit-txt .fruit-name{display: flex;height: 200rpx;align-items: center;justify-content: center;flex-direction: column;margin-left: 300rpx;}
+.fruit-name .name{padding-top: 10rpx;letter-spacing: 10rpx;font-size: 60rpx;font-weight: bold;}
+.find-fruit{display: flex;height: 200rpx;align-items: center;justify-content: center;}
+.find-fruit .txt{display: flex;letter-spacing: 0;width: 400rpx;height: 100rpx;border: 1px solid rgb(240, 104, 104);font-size: 38rpx;align-items: center;justify-content: center;border-radius: 50rpx;background-color: rgb(240, 104, 104);}

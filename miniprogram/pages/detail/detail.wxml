@@ -1,0 +1,23 @@
+<view class="fruits">
+  <view class="fruit-txt">
+    <view class="fruit-name">
+      <text class="pinyin">
+        {{fruit.pinyin}}
+      </text>
+      <view class="name">
+        {{fruit.name}}
+      </view>
+    </view>
+    <view class="boyin">
+      <image src="/images/boyin.png" bindtap="music" data-music="{{fruit.music}}"/>
+    </view>
+  </view>
+  <view class="img">
+    <image src="{{fruit.imgUrl}}" mode="widthFix" />
+  </view>
+  <view class="find-fruit">
+      <navigator class="txt" url="/pages/find/find">
+        找{{fruit.name}}
+      </navigator>
+  </view>
+</view>
