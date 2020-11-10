@@ -1,6 +1,6 @@
 page{background-color: pink}
 .fruits{display: flex;align-items: center;justify-content: center;padding-top: 40rpx;flex-direction: column;}
-.fruit{width: 600rpx;padding-bottom: 40rpx;}
+.fruit{width: 640rpx;padding-bottom: 40rpx;}
 .fruit image{width: 100%;border-radius: 30rpx;}
 
 

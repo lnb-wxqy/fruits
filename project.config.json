@@ -35,7 +35,7 @@
     "minifyWXSS": true
   },
   "appid": "wx2de000e40a5c4439",
-  "projectname": "Tang-poetry300",
+  "projectname": "fruits",
   "libVersion": "2.13.2",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},

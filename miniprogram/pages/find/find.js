@@ -10,15 +10,41 @@ Page({
     fruits: "",
     currentFruitName: "",
     currentImgUrl: "",
-    imgUrlList: ""
+    imgUrlList: "",
+    currentIndex: 0,
+    hiddenModel: true
   },
 
   // 点击事件
-  findHandler:function(res){
+  findHandler: function (res) {
     console.log(res)
-    if (res.currentTarget.dataset.url===this.data.currentImgUrl){
+    if (res.currentTarget.dataset.index == app.globalData.fruits.length - 1) {
+      wx.showModal({
+        title: '学完啦',
+        content: '小朋友你真棒！快去从头复习一遍吧',
+        success(res) {
+          if (res.confirm) {
+            // 调回到首页
+            wx.redirectTo({
+              url: '/pages/index/index',
+            })
+          }
+        }
+      })
+      return
+    }
+    if (res.currentTarget.dataset.url === this.data.currentImgUrl) {
+      var index = Number(this.data.currentIndex) + 1
+      this.setData({
+        currentIndex: index
+      })
+
+      wx.redirectTo({
+        url: '/pages/detail/detail?index=' + this.data.currentIndex,
+      })
+
       console.log("正确")
-    }else{
+    } else {
       console.log("错误")
       // 错误：手机震动提示
       wx.vibrateLong({
@@ -61,7 +87,8 @@ Page({
     //构造要展示的数据，从fruits中随机取出四张图片，包含detail展示的图片
     this.setData({
       currentFruitName: options.name,
-      currentImgUrl: options.imgUrl
+      currentImgUrl: options.imgUrl,
+      currentIndex: options.index
     })
     this.random()
 
@@ -114,6 +141,17 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    return {
+      title: "知道这是什么水果吗？",
+      path: "pages/index/index"
+    }
+  },
 
+  // button分享
+  onShareTimeline: function (res) {
+    return {
+      title: "知道这是什么水果吗？",
+      path: "pages/index/index"
+    }
   }
 })

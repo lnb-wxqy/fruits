@@ -1,24 +1,18 @@
-// pages/detail/detail.js
-const app=getApp()
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // fruit: {
-    //   name: "",
-    //   english: "",
-    //   pinyin: "",
-    //   music: "",
-    //   imgUrl: "",
-    // }
-    fruit:null
+    fruit: null,
+    currentIndex: 0,
+
   },
 
   // 音乐播放
   music: function (res) {
-    var musicSrc=res.currentTarget.dataset.music
+    var musicSrc = res.currentTarget.dataset.music
     const innerAudioContext = wx.createInnerAudioContext()
     innerAudioContext.autoplay = true
     innerAudioContext.src = musicSrc
@@ -35,11 +29,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    var fruit = app.globalData.fruits[options.index]
 
-    var fruit =app.globalData.fruits[options.index]
     this.setData({
-      fruit:fruit
+      fruit: fruit,
+      currentIndex: options.index
     })
   },
 

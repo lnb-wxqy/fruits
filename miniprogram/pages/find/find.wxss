@@ -1,6 +1,13 @@
-
 page{background-color: pink;}
-.finds{display: flex;justify-content: center;padding-top: 200rpx;}
+.finds{display: flex;justify-content: center;padding-top: 5rpx;margin-top: 20rpx;}
 .findMain{display: flex; flex-wrap: wrap; justify-content: space-between;width: 700rpx;}
-.findMain .findImg{ width:340rpx;margin-bottom: 30rpx;box-shadow:0 10rpx 10rpx -5rpx #888888;}
+.findMain .findImg{width:340rpx;margin-bottom: 30rpx;box-shadow:0 10rpx 10rpx -5rpx #888888;}
 .findMain .findImg image{width: 100%;height: 320rpx;border-radius: 15rpx;}
+
+.txt{display: flex;flex-direction: column;align-items: center;height: 200rpx;padding-top: 20rpx;}
+.txt .txt1{font-size: 50rpx;height: 100rpx;font-weight: bold;}
+.txt .txt2{display: flex;font-size: 40rpx;height: 70rpx;padding-bottom: 10rpx;}
+
+.kaopengyou{display: flex;flex-wrap: nowrap;justify-content: space-between;align-items: center;font-size: 32rpx;height: 60rpx;margin-top: 40rpx;}
+.kaopengyou .txt3{display: block;position: absolute;right: 40rpx;border: 1px solid red;width: 200rpx;text-align: center;border-radius: 30rpx;background-color: red;color: white;}
+.kaopengyou button{opacity: 0;position: absolute;right: 40rpx;}

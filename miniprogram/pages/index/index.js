@@ -13,20 +13,6 @@ Page({
     fruits: "",
   },
 
-  // NavigateDetail: function (res) {
-  //   var fruit = res.currentTarget.dataset.fruit
-  //   wx.navigateTo({
-  //     url: "/pages/detail/detail",
-  //     success: function (res) {
-  //       // 通过eventChannel向被打开页面传送数据
-  //       res.eventChannel.emit('acceptDataFromOpenerPage', {
-  //         fruit: fruit
-  //       })
-  //     }
-  //   })
-
-  // },
-
   // 初始化数据
   initData: function () {
 
@@ -34,15 +20,16 @@ Page({
       this.setData({
         fruits: res.data
       })
+
+      // 全局变量赋值
+    app.globalData.fruits = this.data.fruits
+    console.log(app.globalData.fruits)
       // 存入本地缓存
       wx.setStorageSync('fruits', {
         time: Date.now(),
         data: this.data.fruits
       })
     })
-
-    // 全局变量赋值
-    app.globalData.fruits = this.data.fruits
   },
 
   /**
