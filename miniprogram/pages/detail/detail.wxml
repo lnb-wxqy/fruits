@@ -16,7 +16,7 @@
     <image src="{{fruit.imgUrl}}" mode="widthFix" />
   </view>
   <view class="find-fruit">
-      <navigator class="txt" url="/pages/find/find">
+      <navigator class="txt" url="/pages/find/find?name={{fruit.name}}&imgUrl={{fruit.imgUrl}}">
         找{{fruit.name}}
       </navigator>
   </view>

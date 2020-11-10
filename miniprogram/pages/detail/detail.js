@@ -1,18 +1,19 @@
 // pages/detail/detail.js
-
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    fruit: {
-      name: "",
-      english: "",
-      pinyin: "",
-      music: "",
-      imgUrl: "",
-    }
+    // fruit: {
+    //   name: "",
+    //   english: "",
+    //   pinyin: "",
+    //   music: "",
+    //   imgUrl: "",
+    // }
+    fruit:null
   },
 
   // 音乐播放
@@ -35,17 +36,11 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    this.setData({
-      fruit: {
-        name: options.name,
-        english: options.english,
-        pinyin: options.pinyin,
-        music: options.music,
-        imgUrl: options.imgUrl,
-      }
-    })
 
-    console.log(this.data.fruit.name)
+    var fruit =app.globalData.fruits[options.index]
+    this.setData({
+      fruit:fruit
+    })
   },
 
   /**

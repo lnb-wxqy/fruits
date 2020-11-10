@@ -1,4 +1,5 @@
 // pages/dati/dati.js
+const app = getApp()
 var currentIndex = 0 //默认0，显示集合第一个元素，当点击下一题时加1
 // 猜图点击事件只执行一次，多次点击不生效，点击下一题时再生效
 var flag = true
@@ -12,19 +13,19 @@ Page({
     fruits: "",
   },
 
-  NavigateDetail: function (res) {
-    var fruit = res.currentTarget.dataset.fruit
-    wx.navigateTo({
-      url: "/pages/detail/detail",
-      success: function (res) {
-        // 通过eventChannel向被打开页面传送数据
-        res.eventChannel.emit('acceptDataFromOpenerPage', {
-          fruit: fruit
-        })
-      }
-    })
+  // NavigateDetail: function (res) {
+  //   var fruit = res.currentTarget.dataset.fruit
+  //   wx.navigateTo({
+  //     url: "/pages/detail/detail",
+  //     success: function (res) {
+  //       // 通过eventChannel向被打开页面传送数据
+  //       res.eventChannel.emit('acceptDataFromOpenerPage', {
+  //         fruit: fruit
+  //       })
+  //     }
+  //   })
 
-  },
+  // },
 
   // 初始化数据
   initData: function () {
@@ -40,14 +41,15 @@ Page({
       })
     })
 
-    console.log(this.data.fruits)
+    // 全局变量赋值
+    app.globalData.fruits = this.data.fruits
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
- 
+
     //构造初始数据数据
     // 由于查库获取数据不能及时获取到，
     // 故页面开始加载时第一个
@@ -76,9 +78,11 @@ Page({
         this.setData({
           fruits: fruits.data
         })
+
+        // 全局变量赋值
+        app.globalData.fruits = fruits.data
       }
     }
-
   },
 
   /**

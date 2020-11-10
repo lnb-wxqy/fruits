@@ -1,1 +1,6 @@
-/* pages/find/find.wxss */
+
+page{background-color: pink;}
+.finds{display: flex;justify-content: center;padding-top: 200rpx;}
+.findMain{display: flex; flex-wrap: wrap; justify-content: space-between;width: 700rpx;}
+.findMain .findImg{ width:340rpx;margin-bottom: 30rpx;box-shadow:0 10rpx 10rpx -5rpx #888888;}
+.findMain .findImg image{width: 100%;height: 320rpx;border-radius: 15rpx;}

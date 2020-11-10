@@ -1,14 +1,26 @@
-var common={
-  getStrLen:function(str,len){
+var common = {
 
-    if(str.length>len){
-      return str.substr(0,len)+"..."
-    }else{
+  // 打乱数组顺序
+  shuffle: function (arr) {
+    var len = arr.length;
+    for (var i = 0; i < len - 1; i++) {
+      var index = parseInt(Math.random() * (len - i));
+      var temp = arr[index];
+      arr[index] = arr[len - i - 1];
+      arr[len - i - 1] = temp;
+    }
+    return arr;
+  },
+  getStrLen: function (str, len) {
+
+    if (str.length > len) {
+      return str.substr(0, len) + "..."
+    } else {
       return str
     }
 
   },
-  getMyData:function (timestamp, formats) {
+  getMyData: function (timestamp, formats) {
     // formats格式包括
     // 1. Y-m-d
     // 2. Y-m-d H:i:s
@@ -17,14 +29,14 @@ var common={
     formats = formats || 'Y-m-d';
 
     var zero = function (value) {
-        if (value < 10) {
-            return '0' + value;
-        }
-        return value;
+      if (value < 10) {
+        return '0' + value;
+      }
+      return value;
     };
 
-    var timestamp=timestamp*1000;
-    var myDate = timestamp? new Date(timestamp): new Date();
+    var timestamp = timestamp * 1000;
+    var myDate = timestamp ? new Date(timestamp) : new Date();
 
     var year = myDate.getFullYear();
     var month = zero(myDate.getMonth() + 1);
@@ -35,19 +47,17 @@ var common={
     var second = zero(myDate.getSeconds());
 
     return formats.replace(/Y|m|d|H|i|s/ig, function (matches) {
-        return ({
-            Y: year,
-            m: month,
-            d: day,
-            H: hour,
-            i: minite,
-            s: second
-        })[matches];
+      return ({
+        Y: year,
+        m: month,
+        d: day,
+        H: hour,
+        i: minite,
+        s: second
+      })[matches];
     });
   }
 
 }
 
-module.exports=common
-
-
+module.exports = common

@@ -1,2 +1,15 @@
-<!--pages/find/find.wxml-->
-<text>pages/find/find.wxml</text>
+<view>
+  <text decode='true '>
+    {{currentFruitName}}在哪里?
+    请选择点击&lt;{{currentFruitName}}&gt;
+  </text>
+
+</view>
+<view class="finds">
+  <view class="findMain">
+    <view class="findImg" wx:for="{{imgUrlList}}" wx:for-item="imgUrl" wx:key="index" wx:index="index" bindtap="findHandler" data-url="{{imgUrl}}">
+      <image src="{{imgUrl}}"></image>
+    </view>
+  </view>
+
+</view>

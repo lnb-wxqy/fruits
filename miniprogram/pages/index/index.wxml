@@ -1,7 +1,6 @@
 <view class="fruits">
-
-  <navigator class="fruit" url="/pages/detail/detail?name={{fruit.name}}&pinyin={{fruit.pinyin}}&english={{fruit.english}}&music={{fruit.music}}&imgUrl={{fruit.imgUrl}}" wx:for="{{fruits}}"
-    wx:for-item="fruit" wx:key="index" data-fruit="{{fruit}}">
+  <navigator class="fruit" url="/pages/detail/detail?index={{index}}" wx:for="{{fruits}}"
+    wx:for-item="fruit" wx:key="index" wx:index="index">
     <image src="{{fruit.imgUrl}}" mode="widthFix" />
   </navigator>
 </view>
