@@ -1,0 +1,8 @@
+page{background-color: pink}
+.fruits{display: flex;align-items: center;justify-content: center;padding-top: 40rpx;flex-direction: column;}
+.fruit{width: 640rpx;padding-bottom: 40rpx;}
+.fruit image{width: 100%;border-radius: 30rpx;}
+
+.foot .hTxt::before{display: block; width: 30%;height: 1rpx;content: "";background:#000 ;position: absolute;left: 45rpx;top: 50%;opacity: 0.3;}
+.foot .hTxt::after{display: block; width: 30%;height: 1rpx;content: "";background:#000 ;position: absolute;right: 45rpx;top: 50%;opacity: 0.3;}
+

@@ -1,0 +1,23 @@
+<view class="txt">
+  <text class="txt1">
+    {{currentFruitName}}在哪里?
+  </text>
+  <text decode='true' class="txt2">
+    请点击选择&lt;{{currentFruitName}}&gt;
+  </text>
+
+</view>
+<view class="finds">
+  <view class="findMain">
+    <view class="findImg" wx:for="{{imgUrlList}}" wx:for-item="imgUrl" wx:key="index" wx:index="index"
+      bindtap="findHandler" data-url="{{imgUrl}}" data-index="{{currentIndex}}">
+      <image src="{{imgUrl}}"></image>
+    </view>
+  </view>
+
+</view>
+
+<view class="kaopengyou">
+  <text class="txt3">分享给朋友</text>
+  <button type="primary" open-type="share" style="width:200rpx;height:40px;"></button>
+</view>
