@@ -9,7 +9,6 @@ Page({
     currentIndex: 0,
 
   },
-
   // 音乐播放
   music: function (res) {
     var musicSrc = res.currentTarget.dataset.music
