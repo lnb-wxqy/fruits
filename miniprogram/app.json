@@ -8,7 +8,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#7B68EE",
-    "navigationBarTitleText": "看图识水果",
+    "navigationBarTitleText": "宝宝识水果",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",

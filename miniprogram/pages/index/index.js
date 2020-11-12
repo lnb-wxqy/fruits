@@ -116,7 +116,7 @@ Page({
    */
   onReachBottom: function () {
     // 判断数据库中的数据是否已经查询完毕
-    if (this.data.tmpFruitsNums <= 20) {
+    if (this.data.tmpFruitsNums < 20) {
       return
     }
     wx.showLoading({
@@ -142,12 +142,11 @@ Page({
 
         // 更新全局变量
         app.globalData.fruits = this.data.fruits
-        console.log(this.data.fruits)
+
       })
       .catch(err => {
         console.error(err)
       })
-    console.log('circle 下一页');
   },
 
   /**
