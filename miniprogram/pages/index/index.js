@@ -10,20 +10,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    fruits: "",
+    fruits: [],
+    fruits_nums: 0, //水果集合的初始值，
+    //每次从数据库中查询出的数据条数，因为小程序限制每次只能取20条，如果每次查询出的数据条数小于20，说明数据库中的数据已经全部查询完毕默认21
+    tmpFruitsNums: 21
   },
 
   // 初始化数据
   initData: function () {
 
+    // Promise 写法；缺点：每次只能查询20条
     db.collection("fruits").get().then(res => {
       this.setData({
-        fruits: res.data
+        fruits: res.data,
       })
 
       // 全局变量赋值
-    app.globalData.fruits = this.data.fruits
-    console.log(app.globalData.fruits)
+      app.globalData.fruits = this.data.fruits
+      // console.log(app.globalData.fruits)
       // 存入本地缓存
       wx.setStorageSync('fruits', {
         time: Date.now(),
@@ -111,7 +115,39 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    // 判断数据库中的数据是否已经查询完毕
+    if (this.data.tmpFruitsNums <= 20) {
+      return
+    }
+    wx.showLoading({
+      title: '数据加载中...',
+      duration: 1000,
+    })
 
+    let x = this.data.fruits_nums + 20
+    console.log(x)
+    let old_fruits = this.data.fruits
+
+    db.collection('fruits').orderBy('time', 'desc').skip(x) // 限制返回数量为 20 条
+      .get()
+      .then(res => {
+        // 利用concat函数连接新数据与旧数据
+        // 并更新fruits_numss  
+        this.setData({
+          // 获取每次从数据库中查询出的数据条数，如果小于20，说明数据库中的数据已经全部查询完毕
+          tmpFruitsNums: res.data.length,
+          fruits: old_fruits.concat(res.data),
+          fruits_nums: x
+        })
+
+        // 更新全局变量
+        app.globalData.fruits = this.data.fruits
+        console.log(this.data.fruits)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+    console.log('circle 下一页');
   },
 
   /**

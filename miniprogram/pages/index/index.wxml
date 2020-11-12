@@ -4,3 +4,7 @@
     <image src="{{fruit.imgUrl}}" mode="widthFix" />
   </navigator>
 </view>
+<!-- 底部 -->
+<!-- <view class="foot">
+  <view class="hTxt">没有更多啦</view>
+</view> -->
